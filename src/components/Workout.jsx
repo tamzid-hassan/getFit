@@ -1,6 +1,18 @@
-function Workout() {
+import SectionWrapper from "./SectionWrapper"
+import ExcerciseCard from "./ExcerciseCard"
+
+function Workout({ workout }) {
+    console.log(workout)
     return (
-        <div>Workout</div>
+        <SectionWrapper sectionId={"formulate"} header={"welcome to"} title={["The", ["Danger"], ["Zone"]]}>
+            <div className="flex flex-col gap-4">
+                {workout?.map((excercise, excerciseIndex) => {
+                    return (
+                        < ExcerciseCard key={excerciseIndex} excerciseIndex={excerciseIndex} excercise={excercise} />
+                    )
+                })}
+            </div>
+        </SectionWrapper>
     )
 }
 

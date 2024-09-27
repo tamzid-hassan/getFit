@@ -8,7 +8,7 @@ function Hero() {
                 <h1 className="text-4xl font-semibold uppercase sm:text-5xl md:text-6xl lg:text-7xl">ASDASDAS<span className="text-blue-400">asdasd</span></h1>
             </div>
             <p className="text-sm font-light md:text-base">Lorem ipsum dolor sit amet <span className="font-medium text-blue-400">consectetur adipisicing</span> elit. Ducimus, provident quibusdam autem placeat accusantium, eum facilis nesciunt exercitationem quaerat nemo molestiae cum dolorum <span className="font-medium text-blue-400">consectetur adipisicing</span> tempore mollitia.</p>
-            <Button btnText={"Lets Get Fit"} />
+            <Button func={() => window.location.href = "#generate"} btnText={"Lets Get Fit"} />
         </div>
     )
 }

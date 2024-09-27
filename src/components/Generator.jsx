@@ -15,12 +15,10 @@ function Header({ index, title, description }) {
     )
 }
 
-function Generator() {
+function Generator(props) {
 
     const [showModal, setShowModal] = useState(false)
-    const [workoutType, setWorkoutType] = useState('individual')
-    const [muscles, setMuscles] = useState([])
-    const [goal, setGoal] = useState('strength_power')
+    const { workoutType, setWorkoutType, muscles, setMuscles, goal, setGoal, updateWorkout } = props
 
 
     function toggleModal() {
@@ -68,7 +66,7 @@ function Generator() {
     console.log("==================")
 
     return (
-        <SectionWrapper header={"generate your wokrout"} title={["It's", ["Huge"], ["o'clock"]]}>
+        <SectionWrapper sectionId={"generate"} header={"generate your wokrout"} title={["It's", ["Huge"], ["o'clock"]]}>
             <Header index={'01'} title={'Pick your Workout Style'} description={"Select the workout you wish to endure."} />
             <div className='grid grid-cols-2 gap-4 sm:grid-cols-4'>
                 {Object.keys(WORKOUTS).map((type, typeIndex) => {
@@ -76,7 +74,7 @@ function Generator() {
                         <button onClick={() => {
                             setMuscles([])
                             setWorkoutType(type)
-                        }} className={'bg-slate-950 border  duration-200 px-4 hover:border-blue-600 py-3 rounded-lg ' + (type === workoutType ? ' border-blue-600' : ' border-blue-400')} key={typeIndex}>
+                        }} className={' border  duration-200 px-4 hover:border-blue-600 py-3 rounded-lg ' + (type === workoutType ? ' border-blue-600 bg-slate-800' : ' border-blue-400 bg-slate-950')} key={typeIndex}>
                             <p className='capitalize'>{type.replaceAll('_', " ")}</p>
                         </button>
                     )
@@ -108,14 +106,14 @@ function Generator() {
                     return (
                         <button onClick={() => {
                             setGoal(scheme)
-                        }} className={'bg-slate-950 border  duration-200 hover:border-blue-600 py-3 rounded-lg px-4 ' + (scheme === goal ? ' border-blue-600' : ' border-blue-400')} key={schemeIndex}>
+                        }} className={'border  duration-200 hover:border-blue-600 py-3 rounded-lg px-4 ' + (scheme === goal ? ' border-blue-600 bg-slate-800 ' : ' border-blue-400 bg-slate-950 ')} key={schemeIndex}>
                             <p className='capitalize'>{scheme.replaceAll('_', " ")}</p>
                         </button>
                     )
                 })}
             </div>
 
-            <Button btnText={"Formulate"} />
+            <Button func={updateWorkout} btnText={"Formulate"} />
         </SectionWrapper>
 
     )

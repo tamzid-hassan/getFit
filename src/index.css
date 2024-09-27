@@ -6,6 +6,11 @@
     font-family: "Poppins", sans-serif;
 }
 
+html {
+    scroll-behavior: smooth !important;
+
+}
+
 span {
     font-family: inherit;
     font-weight: inherit;
@@ -18,4 +23,9 @@ span {
 .btnBlueShadow:hover {
     transform: translate(-3px, -3px);
     box-shadow: 6px 6px 0px 0 #2177e0;
+}
+
+.btnBlueShadow:active {
+    transform: translate(0px, 0px);
+    box-shadow: 3px 3px 0px 0 #2177e0;
 }
