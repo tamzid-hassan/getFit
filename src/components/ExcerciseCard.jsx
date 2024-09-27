@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 function ExcerciseCard({ excerciseIndex, excercise }) {
 
@@ -12,6 +12,10 @@ function ExcerciseCard({ excerciseIndex, excercise }) {
 
         setSetsCompleted(prevValue => (prevValue + 1))
     }
+
+    useEffect(() => {
+        setSetsCompleted(0)
+    }, [excercise])
 
     return (
         <div className="flex flex-col gap-4 p-4 rounded-md sm:flex-wrap bg-slate-950">
